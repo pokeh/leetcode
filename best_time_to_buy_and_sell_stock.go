@@ -9,15 +9,11 @@ func maxProfit(prices []int) int {
     
     for i := 1; i < len(prices); i++ {
         diff = prices[i] - prices[i-1]
-        lMax = max(lMax + diff, diff)
+        lMax = max(lMax+diff, diff)
         gMax = max(gMax, lMax)
     }
     
-    if gMax < 0 {
-        return 0
-    } else {
-        return gMax
-    }
+    return max(gMax, 0)
 }
 
 func max(x, y int) int {
