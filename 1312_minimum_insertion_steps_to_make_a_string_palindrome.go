@@ -1,0 +1,53 @@
+func minInsertions(s string) int {
+	if len(s) < 2 {
+		return 0
+	}
+
+	if reverse(s) == s {
+		return 0
+	}
+
+	return len(s) - lcs(s, reverse(s))
+}
+
+func reverse(str string) string {
+	var r string
+
+	for i := len(str) - 1; i >= 0; i-- {
+		r += string(str[i])
+	}
+
+	return r
+}
+
+// longest common subsequence
+// solved by bottom-up DP
+func lcs(t1, t2 string) int {
+	l1 := len(t1)
+	l2 := len(t2)
+
+	dp := make([][]int, l1+1)
+
+	for i, _ := range dp {
+		dp[i] = make([]int, l2+1)
+	}
+
+	for i := 1; i <= l1; i++ {
+		for j := 1; j <= l2; j++ {
+			if t1[i-1] == t2[j-1] {
+				dp[i][j] = dp[i-1][j-1] + 1
+			} else {
+				dp[i][j] = max(dp[i][j-1], dp[i-1][j])
+			}
+		}
+	}
+
+	return dp[l1][l2]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
