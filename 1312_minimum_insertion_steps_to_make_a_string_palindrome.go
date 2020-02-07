@@ -22,9 +22,9 @@ func reverse(str string) string {
 
 // longest common subsequence
 // solved by bottom-up DP
-func lcs(t1, t2 string) int {
-	l1 := len(t1)
-	l2 := len(t2)
+func lcs(s1, s2 string) int {
+	l1 := len(s1)
+	l2 := len(s2)
 
 	dp := make([][]int, l1+1)
 
@@ -34,7 +34,7 @@ func lcs(t1, t2 string) int {
 
 	for i := 1; i <= l1; i++ {
 		for j := 1; j <= l2; j++ {
-			if t1[i-1] == t2[j-1] {
+			if s1[i-1] == s2[j-1] {
 				dp[i][j] = dp[i-1][j-1] + 1
 			} else {
 				dp[i][j] = max(dp[i][j-1], dp[i-1][j])
