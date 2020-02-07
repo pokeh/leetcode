@@ -10,11 +10,11 @@ func minInsertions(s string) int {
 	return len(s) - lcs(s, reverse(s))
 }
 
-func reverse(str string) string {
+func reverse(s string) string {
 	var r string
 
-	for i := len(str) - 1; i >= 0; i-- {
-		r += string(str[i])
+	for i := len(s) - 1; i >= 0; i-- {
+		r += string(s[i])
 	}
 
 	return r
