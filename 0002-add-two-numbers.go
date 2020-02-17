@@ -34,15 +34,6 @@ func helper(l1 *ListNode, l2 *ListNode, carry int) *ListNode {
 		newVal = newVal % 10
 	}
 
-	if (l1 == nil || l1.Next == nil) &&
-		(l2 == nil || l2.Next == nil) &&
-		newCarry == 0 {
-		return &ListNode{
-			Val:  newVal,
-			Next: nil,
-		}
-	}
-
 	var next1, next2 *ListNode
 	if l1 != nil {
 		next1 = l1.Next
@@ -50,6 +41,14 @@ func helper(l1 *ListNode, l2 *ListNode, carry int) *ListNode {
 	if l2 != nil {
 		next2 = l2.Next
 	}
+
+	if next1 == nil && next2 == nil && newCarry == 0 {
+		return &ListNode{
+			Val:  newVal,
+			Next: nil,
+		}
+	}
+
 	return &ListNode{
 		Val:  newVal,
 		Next: helper(next1, next2, newCarry),
