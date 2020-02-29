@@ -1,3 +1,5 @@
+package main
+
 func rob(nums []int) int {
 	memo := [2]int{0, 0}
 

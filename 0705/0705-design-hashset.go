@@ -1,3 +1,5 @@
+package main
+
 const tableSize = 10
 
 type MyHashSet struct {
@@ -13,12 +15,12 @@ func hash(key int) int {
 /** Initialize your data structure here. */
 func Constructor() MyHashSet {
 	h := MyHashSet{}
-	
+
 	for i := 0; i < tableSize; i++ {
 		b := make(Bucket, 0)
 		h.hashTable[i] = &b
 	}
-	
+
 	return h
 }
 

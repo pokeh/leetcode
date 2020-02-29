@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func twoSum(nums []int, target int) []int {
 	numIdxMap := make(map[int]int)
 
@@ -27,3 +29,7 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 */
+
+func main() {
+	fmt.Println(twoSum([]int{1, 2, 3, 4}, 5))
+}

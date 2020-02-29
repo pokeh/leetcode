@@ -1,3 +1,5 @@
+package main
+
 func minInsertions(s string) int {
 	if len(s) < 2 {
 		return 0

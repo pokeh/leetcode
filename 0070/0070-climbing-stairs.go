@@ -1,3 +1,5 @@
+package main
+
 // Question
 
 // You are climbing a stair case. It takes n steps to reach to the top.
@@ -37,10 +39,10 @@
 // 2 step + 2 step
 
 // Can you find the number of distinct ways of k, given answers of 1...k-1?
-// Yes! 
+// Yes!
 // The total number of distinct ways are ans(k-1) + ans(k-2).
 // This is because, the ways to reach the k-th stair,
-// we could add 1 step to each answer for k-1, 
+// we could add 1 step to each answer for k-1,
 // or, we could add 2 steps to each answer for k-2. Those are the only answers.
 
 // Now that we have this, we could just solve this problem recursively.
@@ -48,26 +50,26 @@
 var memo []int
 
 func climbStairs(n int) int {
-    memo = make([]int, n+1)
+	memo = make([]int, n+1)
 
-    return climb(n)
+	return climb(n)
 }
 
 func climb(k int) int {
-    if (k < 0) {
-        panic("unexpected")
-    }
-    
-    if (k < 2) {
-        memo[k] = 1
-        return 1
-    }
-    
-    if memo[k] != 0 {
-        return memo[k]
-    }
-    
-    ans := climb(k-1) + climb(k-2)
-    memo[k] = ans
-    return ans
+	if k < 0 {
+		panic("unexpected")
+	}
+
+	if k < 2 {
+		memo[k] = 1
+		return 1
+	}
+
+	if memo[k] != 0 {
+		return memo[k]
+	}
+
+	ans := climb(k-1) + climb(k-2)
+	memo[k] = ans
+	return ans
 }
