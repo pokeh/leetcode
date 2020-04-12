@@ -1,9 +1,9 @@
 func singleNumber(nums []int) int {
-    res := 0
+	res := 0
 
-    for _, n := range nums {
-        res ^= n
-    }
+	for _, n := range nums {
+		res ^= n
+	}
 
-    return res
+	return res
 }

@@ -1,35 +1,35 @@
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
- *     Val int
- *     Next *ListNode
+ *	 Val int
+ *	 Next *ListNode
  * }
  */
 func middleNode(head *ListNode) *ListNode {
-    multOfTwo := false
-    curr := head
-    mid := head
+	multOfTwo := false
+	curr := head
+	mid := head
 
-    for curr != nil {
-        curr = curr.Next
+	for curr != nil {
+		curr = curr.Next
 
-        if multOfTwo {
-            mid = mid.Next
-        }
-        multOfTwo = !multOfTwo
-    }
+		if multOfTwo {
+			mid = mid.Next
+		}
+		multOfTwo = !multOfTwo
+	}
 
-    return mid
+	return mid
 }
 
 func middleNode2(head *ListNode) *ListNode {
-    curr := head
-    mid := head
+	curr := head
+	mid := head
 
-    for curr != nil && curr.Next != nil {
-        curr = curr.Next.Next
-        mid = mid.Next
-    }
+	for curr != nil && curr.Next != nil {
+		curr = curr.Next.Next
+		mid = mid.Next
+	}
 
-    return mid
+	return mid
 }

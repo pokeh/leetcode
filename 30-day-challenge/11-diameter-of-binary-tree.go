@@ -1,11 +1,11 @@
 func diameterOfBinaryTree(root *TreeNode) int {
-    _, diameter := dfs(root, 0)
+	_, diameter := dfs(root, 0)
 	return diameter
 }
 
 func dfs(node *TreeNode, currMax int) (depth int, nextMax int) {
 	if node == nil {
-        return
+		return
 	}
 
 	l, currMax := dfs(node.Left, currMax)
