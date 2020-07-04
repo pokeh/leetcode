@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -23,7 +25,7 @@ var levelOrderBottom = function (root) {
 
     const row = [];
 
-    for (i = 0; i < numOfNodesInRow; i++) {
+    for (let i = 0; i < numOfNodesInRow; i++) {
       // dequeue the next node to process
       const node = queue.shift();
 
@@ -42,6 +44,8 @@ var levelOrderBottom = function (root) {
 
   return res.reverse();
 };
+
+console.log(levelOrderBottom([]));
 
 /**
  * Definition for a binary tree node.
