@@ -13,10 +13,10 @@
 /*
 var levelOrderBottom = function (root) {
   let res = [];
-  bfs(root, 0);
+  dfs(root, 0);
   return res.reverse();
 
-  function bfs(node, depth) {
+  function dfs(node, depth) {
     if (!node) {
       return;
     }
@@ -26,8 +26,8 @@ var levelOrderBottom = function (root) {
     }
     res[depth].push(node.val);
 
-    bfs(node.left, depth + 1);
-    bfs(node.right, depth + 1);
+    dfs(node.left, depth + 1);
+    dfs(node.right, depth + 1);
   }
 };
 */
@@ -39,7 +39,7 @@ var levelOrderBottom = function (root) {
 var levelOrderBottom = function (root) {
   const res = [];
 
-  const bfs = (node, depth) => {
+  const dfs = (node, depth) => {
     if (!node) {
       return;
     }
@@ -49,11 +49,11 @@ var levelOrderBottom = function (root) {
     }
     res[depth].push(node.val);
 
-    bfs(node.left, depth + 1);
-    bfs(node.right, depth + 1);
+    dfs(node.left, depth + 1);
+    dfs(node.right, depth + 1);
   };
 
-  bfs(root, 0);
+  dfs(root, 0);
 
   return res.reverse();
 };
