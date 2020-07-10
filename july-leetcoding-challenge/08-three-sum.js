@@ -69,12 +69,12 @@ var threeSum = function (nums) {
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function (nums) {
-  if (nums.filter((i) => i != 0).length == 0) {
+function threeSum(nums) {
+  if (nums.filter((i) => i !== 0).length === 0) {
     return nums.length >= 3 ? [[0, 0, 0]] : [];
   }
 
-  let res = new Set();
+  const res = new Map();
 
   // sort from smallest to largest
   nums.sort((a, b) => a - b);
@@ -85,8 +85,9 @@ var threeSum = function (nums) {
 
     while (j < k) {
       const sum = nums[i] + nums[j] + nums[k];
-      if (sum == 0) {
-        res.add(JSON.stringify([nums[i], nums[j], nums[k]]));
+      if (sum === 0) {
+        const arr = [nums[i], nums[j], nums[k]];
+        res.set(arr.toString(), arr);
         j++;
         k--;
       } else if (sum > 0) {
@@ -97,7 +98,7 @@ var threeSum = function (nums) {
     }
   }
 
-  return Array.from(res).map(JSON.parse);
-};
+  return Array.from(res.values());
+}
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4]));
